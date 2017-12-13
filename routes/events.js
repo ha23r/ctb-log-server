@@ -5,7 +5,7 @@ es_api = require('../elasticSearch/es_api');
 
 
 //end point for logging product event
-router.get('/logEvent',function(req,res) { 
+router.all('/logEvent',function(req,res) { 
     //TODO:: move to async call
     var eventId = 'noneyet'
     je = JSON.parse(req.query.event)
