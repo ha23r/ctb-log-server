@@ -23,6 +23,10 @@ function logEvent(eventObject) {
   return indexDocument(eventsIndex, eventsDocType,eventObject);
 }
 
+function logUnformattedEvent(eventObject) {
+  return indexDocument(fallbackEventsIndex, eventsDocType,eventObject);
+}
+
 function indexDocument(indexName, docType, docObject) {
   return new Promise(function (resolve, reject) {
     client.index({
@@ -65,4 +69,4 @@ function searchEvents(indexName, recordType) {
 
   }
 
-module.exports = {createNewIndex, logEvent, searchEvents}
+module.exports = {createNewIndex, logEvent, searchEvents, logUnformattedEvent}
